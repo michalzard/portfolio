@@ -1,8 +1,12 @@
+@import "./Theme.scss";
 .intro{
     display:flex;
-    flex-direction: column;
-    height: 90vh;
+    height: 100vh;
     color:white;
     justify-content: center;
     align-items: center;
+    .description{
+        padding:15px;
+        button{background-color: $secondary;margin-top:10px;}
+    }
 }
