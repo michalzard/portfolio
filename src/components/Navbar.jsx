@@ -11,7 +11,7 @@ const useStyles=makeStyles(()=>({
 function Navbar() {
     const classes=useStyles();
     return (
-        <AppBar position="static" classes={{root:classes.root}}>
+        <AppBar position="sticky" classes={{root:classes.root}}>
         <div className="navbar">
         <div>Logo</div>
         <div className="btns">
