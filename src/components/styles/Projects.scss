@@ -13,6 +13,22 @@
     width:380px;
     margin:20px;
     img{width:100%;height: 300px; }
+    .description{
+        display:flex;
+        max-height: 200px;
+        overflow: hidden;
+    }
+    .actions{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        button{background-color: $secondary;}
+    }
+    .techstack{
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
 }
 .MuiPaper-root{
     background-color: $primary_light !important;
