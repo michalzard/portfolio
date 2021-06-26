@@ -1,13 +1,43 @@
 import React from 'react'
 import "./styles/Projects.scss";
-import {Typography,Paper,Grid,Button} from "@material-ui/core";
+import {Typography,Paper,Grid,Button,Tooltip} from "@material-ui/core";
 
 import Nodejs from "../assets/express.png";
-// import Html5 from "../assets/html5.png";
-// import Js from "../assets/js.png";
+import MongoDB from "../assets/mongodb.png";
 import Mui from "../assets/mui.png";
 import ReactIcon from "../assets/react.png";
 import Sass from "../assets/sass.png";
+
+/**
+ * "Lookup table" for icons to display tech stack used in projects
+ */
+const Icons={
+    node:{
+        name:"Nodejs",
+        icon:Nodejs,
+        url:"https://nodejs.org/en/",
+    },
+    mui:{
+        name:"Material-ui",
+        icon:Mui,
+        url:"https://material-ui.com/",
+    },
+    react:{
+        name:"React",
+        icon:ReactIcon,
+        url:"https://reactjs.org/",
+    },
+    sass:{
+        name:"Sass",
+        icon:Sass,
+        url:"https://sass-lang.com/",
+    },
+    mongodb:{
+        name:"Mongodb",
+        icon:MongoDB,
+        url:"https://www.mongodb.com/",
+    }
+}
 
 
 function WorkDisplay() {
@@ -15,9 +45,15 @@ function WorkDisplay() {
         <div className="projects">
         <Typography variant="h4" gutterBottom>My portfolio</Typography>
         <Grid container justify="center">
-        <Project/><Project/>
-        <Project/><Project/>
-        <Project/> <Project/>
+        
+        <Project
+        title="Destiny"
+        description="Some random ass description"
+        imgURL="https://imgur.com/sss2mgR.png"
+        projectURL="https://github.com/michalzard/Destiny"
+        iconsArray={[Icons.node,Icons.mongodb,Icons.sass,Icons.mui,Icons.react]}
+        />
+        
         </Grid>
         </div>
     )
@@ -25,28 +61,40 @@ function WorkDisplay() {
 
 /**DESIGN IDEA */
 
-function Project(){
+function Project({title,imgURL,description,projectURL,iconsArray}){
 
+    const IconsRender=(array)=>{
+        return(
+            <>
+            {array ? array.map(el=>{
+            return (
+            <Tooltip key={el.name} placement="top" title={el.name} arrow>
+            <a href={el.url} target="_blank" rel="noreferrer">
+            <img key={el.name} src={el.icon} alt={el.name}></img>
+            </a>
+            </Tooltip>
+            );
+            })
+            : null
+            }
+            </>
+        )
+    }
     return(
         <Grid item>
         <Paper className="project" elevation={3}>
-        <Typography variant="h5">Title</Typography>
-        <img src="" alt=""/>
+        <Typography variant="h5" gutterBottom>{title ? title : "Project Title"}</Typography>
+        <img src={imgURL ? imgURL : null} alt=""/>
         <Typography variant="caption" className="description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        {description ? description : "Here's where description is being displayed" }
         </Typography>
         <div className="actions">
-        <Button variant="contained" color="primary">Code</Button>
-        <Button variant="contained" color="primary">Readme</Button>
+        <Button variant="contained" color="primary" target="_blank" 
+        href={projectURL ? projectURL : null}>Code</Button>
         </div>
         <div className="techstack">
-        <Typography style={{marginRight:"10px"}}>Powered by</Typography>
-        <img src={Nodejs} alt="express"></img>
-        {/* <img src={Html5} alt="express"></img>
-        <img src={Js} alt="express"></img> */}
-        <img src={Mui} alt="express"></img>
-        <img src={ReactIcon} alt="express"></img>
-        <img src={Sass} alt="express"></img>
+        <Typography style={{marginRight:"10px"}} variant="body2">Powered by</Typography>
+        { iconsArray ? IconsRender(iconsArray) : IconsRender([Icons.react,Icons.mui])}
         </div>
         </Paper>
         </Grid>
