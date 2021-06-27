@@ -42,7 +42,7 @@ const Icons={
 
 function WorkDisplay() {
     return (
-        <div className="projects">
+        <div className="projects" id="projects">
         <Typography variant="h4" gutterBottom>My portfolio</Typography>
         <Grid container justify="center">
         

@@ -4,7 +4,7 @@ import {Avatar,Typography,Button} from "@material-ui/core";
 
 function Introduction() {
     return (
-        <div className="intro">
+        <div className="intro" id="intro">
         <Avatar style={{width:150,height:150}}/>
         <div className="description">
         <Typography variant="h4">Hello,</Typography>
