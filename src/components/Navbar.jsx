@@ -5,7 +5,7 @@ import {AppBar,Button} from "@material-ui/core";
 function Navbar() {
     const scrollTo=(element)=>{
         element.scrollIntoView({behavior:"smooth",block:"start",inline:"start"});
-    }
+      }
     return (
         <AppBar position="sticky">
         <div className="navbar">

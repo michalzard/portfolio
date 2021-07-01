@@ -5,6 +5,7 @@ import WorkDisplay from "./components/WorkDisplay";
 import Contact from "./components/Contact";
 
 function App() {
+
   return (
     <div className="App">
       <Navbar/>

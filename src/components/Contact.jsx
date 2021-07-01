@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import "./styles/Contact.scss";
-import {Typography,Tooltip} from "@material-ui/core";
+import {Typography,Tooltip, IconButton} from "@material-ui/core";
 
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import EmailIcon from '@material-ui/icons/Email';
 
 function Contact() {
     const [tooltipOpen,SetTooltipOpen]=useState(false);
-    const addToClipBoard=()=>{
+    const addEmailToClipBoard=()=>{
         if(navigator)navigator.clipboard.writeText("miso.platko@gmail.com");
         SetTooltipOpen(true);
         setTimeout(()=>{SetTooltipOpen(false)},3000);
@@ -27,14 +28,13 @@ function Contact() {
         <a href="https://www.facebook.com/michalidesplatkovic/" target="_blank" rel="noreferrer">
         <FacebookIcon/>
         </a>
-        </div>
-        <Typography variant="body1">
-        You can contact me via email aswell at
-        <Tooltip placement="top" open={tooltipOpen} arrow
-         title={<Typography variant="body1">Copied to Clipboard</Typography>}> 
-        <span id="email" style={{marginLeft:"5px"}} onClick={addToClipBoard}>miso.platko@gmail.com</span>
+
+        <Tooltip placement="top" open={tooltipOpen} arrow title={<Typography variant="body1">Copied to Clipboard</Typography>}> 
+         <EmailIcon className="gmail" onClick={()=>{addEmailToClipBoard();}}/>
+     
         </Tooltip>
-        </Typography>
+        </div>
+
         </div>
     )
 }
