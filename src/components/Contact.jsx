@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./styles/Contact.scss";
-import {Typography,Tooltip, IconButton} from "@material-ui/core";
+import {Typography,Tooltip} from "@material-ui/core";
 
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';

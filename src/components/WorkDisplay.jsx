@@ -48,12 +48,26 @@ function WorkDisplay() {
         
         <Project
         title="Destiny"
-        description="Some random ass description"
+        description="Social Media app with proper user experience,web & phone responsibility and much more."
         imgURL="https://imgur.com/sss2mgR.png"
         projectURL="https://github.com/michalzard/Destiny"
         iconsArray={[Icons.node,Icons.mongodb,Icons.sass,Icons.mui,Icons.react]}
         />
-        
+         <Project
+        title="Discord Bot"
+        description="Plugin based discord bot for moderation,fun activities and nmuch more"
+        imgURL=""
+        projectURL="https://github.com/michalzard/DiscordBot"
+        iconsArray={[Icons.node,Icons.mongodb]}
+        />
+
+        <Project
+        title="Pokemon Catalog"
+        description="Catalog of pokemon and pokemon related information"
+        imgURL=""
+        projectURL="https://github.com/michalzard/ReactPokedex"
+        iconsArray={[Icons.sass,Icons.mui,Icons.react]}
+        />
         </Grid>
         </div>
     )
